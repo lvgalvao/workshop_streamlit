@@ -1,4 +1,11 @@
-## Setup do projeto
+## Configurando o ambiente de desenvolvimento
+
+Overview do que vamos utilizar
+
+- Git e Github (utilizando o Github CLI) para versionamento do código
+- Python 3.12.1 utilizando o Pyenv
+- Poetry para fazer o gerenciamento de pacotes e de ambiente virtual
+
 
 1) Criando nosso repositório utilizando o Github CLI
 
