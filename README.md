@@ -1,5 +1,7 @@
 # Workshop Streamlit
 
+![imagem](./pic/foto.png)
+
 ## Roteiro da Aula
 
 - **9h00** Boas vindas
