@@ -26,6 +26,12 @@ graph TD
         J --> K[Exibir Mensagem de Sucesso]
         C -- Não --> L[Exibir Mensagem de Erro]
     end
+
+    subgraph DB[Banco de Dados PostgreSQL]
+        DB_PostgreSQL[(PostgreSQL)]
+        J --> DB_PostgreSQL
+        P --> DB_PostgreSQL
+    end
     
     subgraph Visualização[Aplicação de Visualização de Dados]
         M[Iniciar Aplicação de Visualização de Dados] --> N[Conectar ao Banco de Dados]
@@ -39,14 +45,8 @@ graph TD
         O -- Não --> V[Exibir Mensagem de Erro]
     end
     
-    subgraph DB[Banco de Dados PostgreSQL]
-        DB_PostgreSQL[(PostgreSQL)]
-        J --> DB_PostgreSQL
-        P --> DB_PostgreSQL
-    end
-    
     Coleta --> DB
-    Visualização --> DB
+    DB --> Visualização
 ```
 
 ## A Maneira Mais Simples de Criar um Aplicativo Web com Python
