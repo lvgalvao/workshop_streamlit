@@ -9,6 +9,44 @@
 - **11h30** Intervalo
 - **12h00** Projeto Dashboard Realtime 
 
+## O que vamos fazer hoje
+
+graph TD
+    subgraph Aplicação de Coleta de Dados
+        A[Iniciar Aplicação de Coleta de Dados] --> B[Conectar ao Banco de Dados]
+        B --> C{Conexão bem-sucedida?}
+        C -- Sim --> D[Verificar Tabela]
+        D --> E{Tabela Existe?}
+        E -- Não --> F[Criar Tabela]
+        E -- Sim --> G[Exibir Formulário]
+        G --> H[Preencher Formulário]
+        H --> I[Submeter Formulário]
+        I --> J[Salvar Dados no Banco de Dados]
+        J --> K[Exibir Mensagem de Sucesso]
+        C -- Não --> L[Exibir Mensagem de Erro]
+    end
+    
+    subgraph Aplicação de Visualização de Dados
+        M[Iniciar Aplicação de Visualização de Dados] --> N[Conectar ao Banco de Dados]
+        N --> O{Conexão bem-sucedida?}
+        O -- Sim --> P[Carregar Dados do Banco]
+        P --> Q[Exibir Tabela de Dados]
+        Q --> R[Exibir Gráficos]
+        R --> S[Exibir Nuvem de Palavras]
+        S --> T[Exibir Mapa]
+        T --> U[Exibir Imagem]
+        O -- Não --> V[Exibir Mensagem de Erro]
+    end
+    
+    subgraph Banco de Dados PostgreSQL
+        DB[PostgreSQL]
+        J --> DB
+        P --> DB
+    end
+    
+    Aplicação de Coleta de Dados --> Banco de Dados PostgreSQL
+    Aplicação de Visualização de Dados --> Banco de Dados PostgreSQL
+
 ## A Maneira Mais Simples de Criar um Aplicativo Web com Python
 
 Criar aplicativos web geralmente envolve o uso de frameworks web Python como Django e Flask. Embora esses frameworks sejam poderosos e flexíveis, eles possuem uma curva de aprendizado significativa e podem exigir um investimento substancial de tempo para desenvolver algo funcional.
