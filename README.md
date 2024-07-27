@@ -1,14 +1,13 @@
 # Workshop Streamlit
 
-# Roteiro da aula
+## Roteiro da Aula
 
-- 9h Boas vindas
-- 9h30 Hello World
-- 10h00 Principais comandos
-- 10h30 Setup do projeto
-- 11h00 Nosso primeiro APP
-- 11h30 Intervalo
-- 12h00 Projeto Dashboard 
+- **9h00** Boas vindas
+- **9h30** Hello World
+- **10h00** Principais comandos
+- **10h30** Projeto Survey
+- **11h30** Intervalo
+- **12h00** Projeto Dashboard Realtime 
 
 ## A Maneira Mais Simples de Criar um Aplicativo Web com Python
 
@@ -91,12 +90,6 @@ Para começar a usar Streamlit, siga estes passos:
 4. **Abra o navegador** e acesse `http://localhost:8501` para ver sua aplicação web em ação!
 
 Streamlit é uma ferramenta poderosa e simples que transforma a maneira como você desenvolve e compartilha suas análises de dados. Experimente e veja como pode facilitar o seu trabalho!
-
-## O que é o Stramlit?
-
-- Streamlit é um Web Framework Open Source em python que transforma data scripts em um aplicativo web compartilhavel em minutos
-
-- Streamlit não requer front-end experiência então você consegue focar no seu modelo
 
 ## O que é o Streamlit?
 
@@ -224,6 +217,8 @@ O objetivo deste exemplo é explorar os principais métodos do Streamlit, aborda
 - **Tabela estática**: `st.table(df)`
 - **Objeto JSON**: `st.json(json_obj)`
 - **CSV como string**: `st.write(csv_string)`
+
+
 - **Lista de números**: `st.write(lista)`
 
 ### 3. Métricas
@@ -365,146 +360,6 @@ exclude = ["build", "dist"]
 extend-select = ["B"]
 ```
 
-
-#### O que o ruff faz
-
-Aqui estão exemplos de erros para cada uma das categorias de `select` mencionadas:
-
-### Exemplos de Erros para Cada Categoria de `select`
-
-#### **E**: Erros de Estilo (inspirados no PEP8)
-1. **E501**: Linha com mais de 79 caracteres.
-   ```python
-   def example_function():
-       print("Esta é uma linha de código que é muito longa e ultrapassa o limite de 79 caracteres, o que não está de acordo com o PEP8.")
-   ```
-
-2. **E302**: Esperado 2 linhas em branco, encontradas 1.
-   ```python
-   def function_one():
-       pass
-   def function_two():
-       pass
-   ```
-
-#### **F**: Erros de Código (inspirados no Pyflakes)
-1. **F401**: Importação não utilizada.
-   ```python
-   import os  # Importação não utilizada
-
-   def example_function():
-       pass
-   ```
-
-2. **F821**: Variável não definida.
-   ```python
-   def example_function():
-       print(undefined_variable)  # undefined_variable não está definida
-   ```
-
-#### **W**: Avisos (geralmente relacionados a práticas recomendadas)
-1. **W291**: Espaço em branco no final da linha.
-   ```python
-   def example_function():  
-       pass  
-   ```
-
-2. **W503**: Quebra de linha antes de um operador binário.
-   ```python
-   result = 1 \
-       + 2
-   ```
-
-#### **C**: Convenções (inspirados no pylint)
-1. **C0103**: Nome de variável não está no estilo snake_case.
-   ```python
-   myVariable = 10  # Deveria ser my_variable
-   ```
-
-2. **C0111**: Falta docstring na definição da função.
-   ```python
-   def example_function():
-       pass  # Deveria ter uma docstring explicando a função
-   ```
-
-#### **N**: Docstrings (inspirados no pydocstyle)
-1. **D100**: Falta docstring no módulo.
-   ```python
-   def example_function():
-       """Falta docstring no módulo."""
-       pass
-   ```
-
-2. **D102**: Falta docstring na definição da função.
-   ```python
-   def example_function():
-       pass  # Deveria ter uma docstring explicando a função
-   ```
-
-#### **B**: Verificações do Black
-1. **B001**: O código não está formatado de acordo com o Black.
-   ```python
-   def example_function(a,b):
-       return(a + b)
-   ```
-
-#### **I**: Importações (inspirados no isort)
-1. **I001**: Importações não estão em ordem.
-   ```python
-   import sys
-   import os  # Deveria estar antes de 'import sys'
-   ```
-
-#### **PL**: Plugin (específico para plugins)
-1. **PL001**: Verificação específica de plugin.
-   ```python
-   # Código específico que viola uma regra definida por um plugin.
-   ```
-
-#### **PT**: Verificações de Tipos (específicas de tipos)
-1. **PT001**: Anotação de tipo faltando.
-   ```python
-   def example_function(a, b):  # Deveria ter anotação de tipo
-       return a + b
-   ```
-
-### Exemplo de Configuração Completa no `pyproject.toml`
-
-Aqui está um exemplo de como configurar o Ruff para usar todas essas opções de `select` no seu `pyproject.toml`:
-
-```toml
-[tool.poetry]
-name = "projeto-streamlit"
-version = "0.1.0"
-description = "Projeto Streamlit para criar aplicações web interativas em Python."
-authors = ["Seu Nome <seu.email@example.com>"]
-
-[tool.poetry.dependencies]
-python = "^3.12"
-streamlit = "^1.0.0"
-
-[tool.poetry.dev-dependencies]
-ruff = "^0.0.255"
-pytest = "^6.2.4"
-taskipy = "^1.9.0"
-pre-commit = "^2.14.0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.ruff]
-line-length = 88
-select = ["E", "F", "W", "C", "N", "B", "I", "PL", "PT"]
-ignore = ["E203", "W503"]
-exclude = ["build", "dist"]
-extend-select = ["B"]
-
-[tool.taskipy.tasks]
-lint = "ruff check ."
-test = "pytest"
-```
-
 ### 7.3. Realizando análise estática
 
 Para realizar a análise estática do código com Ruff, execute o seguinte comando:
@@ -514,25 +369,6 @@ ruff check .
 ```
 
 ### 7.4. Corrigindo problemas automaticamente
-
-Ruff também pode corrigir problemas automaticamente quando possível. Para fazer isso, utilize o comando:
-
-```bash
-ruff check . --fix
-```
-
-Com essas configurações, você terá um ambiente de desenvolvimento bem configurado, incluindo a análise estática do código com Ruff, garantindo que seu código esteja sempre em conformidade com as melhores práticas de desenvolvimento em Python.
-
-
-#### 7.3. Realizando análise estática
-
-Para realizar a análise estática do código com Ruff, execute o seguinte comando:
-
-```bash
-ruff check .
-```
-
-#### 7.4. Corrigindo problemas automaticamente
 
 Ruff também pode corrigir problemas automaticamente quando possível. Para fazer isso, utilize o comando:
 
@@ -567,7 +403,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 line-length = 88
-select = ["E", "F", "W"]
+select = ["E", "F", "W", "C", "N", "B", "I", "PL", "PT"]
 ignore = ["E203", "W503"]
 exclude = ["build", "dist"]
 extend-select = ["B"]
@@ -579,7 +415,7 @@ test = "pytest"
 
 Com essas configurações, você terá um ambiente de desenvolvimento bem configurado, incluindo a análise estática do código com Ruff, garantindo que seu código esteja sempre em conformidade com as melhores práticas de desenvolvimento em Python.
 
-#### 7.5. Instalando Taskipy
+### 8. Instalando Taskipy
 
 Adicione Taskipy ao seu projeto:
 
@@ -631,7 +467,9 @@ poetry add folium streamlit-folium
 ### 3. WordCloud
 
 #### O que é?
-WordCloud é uma biblioteca para a geração de nuvens de palavras a partir de texto. As nuvens de palavras são uma forma visual de representar a frequência ou importância de palavras em um texto, com palavras mais frequentes aparecendo maiores.
+WordCloud é uma biblioteca para a geração de nuvens de palavras a partir de texto. As nuvens de
+
+ palavras são uma forma visual de representar a frequência ou importância de palavras em um texto, com palavras mais frequentes aparecendo maiores.
 
 #### Vantagens no Streamlit
 - **Visualização de Texto**: Utilize WordCloud com Streamlit para criar representações visuais atraentes de dados textuais.
@@ -765,7 +603,7 @@ streamlit run visualization.py
 
 ### Funcionalidades
 
-#### Aplicação de Coleta de Dados (`coleta_postgres.py`)
+#### Aplicação de Coleta de Dados (`main.py`)
 
 1. **Conexão ao Banco de Dados**:
    - Conecta ao banco de dados PostgreSQL utilizando as variáveis de ambiente configuradas.
@@ -779,7 +617,7 @@ streamlit run visualization.py
 4. **Salvar Dados**:
    - Salva os dados coletados no banco de dados PostgreSQL.
 
-#### Aplicação de Visualização de Dados (`dash_postgres_cache.py`)
+#### Aplicação de Visualização de Dados (`visualization.py`)
 
 1. **Conexão ao Banco de Dados**:
    - Conecta ao banco de dados PostgreSQL utilizando as variáveis de ambiente configuradas.
@@ -833,3 +671,5 @@ graph TD
     H --> I[Exibir Imagem]
     C -- Não --> J[Exibir Mensagem de Erro]
 ```
+
+Com esse guia, você estará preparado para configurar, desenvolver e executar um projeto completo utilizando Streamlit e PostgreSQL, desde a coleta até a visualização de dados.
