@@ -11,8 +11,9 @@
 
 ## O que vamos fazer hoje
 
+```mermaid
 graph TD
-    subgraph Aplicação de Coleta de Dados
+    subgraph Coleta[Aplicação de Coleta de Dados]
         A[Iniciar Aplicação de Coleta de Dados] --> B[Conectar ao Banco de Dados]
         B --> C{Conexão bem-sucedida?}
         C -- Sim --> D[Verificar Tabela]
@@ -26,7 +27,7 @@ graph TD
         C -- Não --> L[Exibir Mensagem de Erro]
     end
     
-    subgraph Aplicação de Visualização de Dados
+    subgraph Visualização[Aplicação de Visualização de Dados]
         M[Iniciar Aplicação de Visualização de Dados] --> N[Conectar ao Banco de Dados]
         N --> O{Conexão bem-sucedida?}
         O -- Sim --> P[Carregar Dados do Banco]
@@ -38,14 +39,15 @@ graph TD
         O -- Não --> V[Exibir Mensagem de Erro]
     end
     
-    subgraph Banco de Dados PostgreSQL
-        DB[PostgreSQL]
-        J --> DB
-        P --> DB
+    subgraph DB[Banco de Dados PostgreSQL]
+        DB_PostgreSQL[(PostgreSQL)]
+        J --> DB_PostgreSQL
+        P --> DB_PostgreSQL
     end
     
-    Aplicação de Coleta de Dados --> Banco de Dados PostgreSQL
-    Aplicação de Visualização de Dados --> Banco de Dados PostgreSQL
+    Coleta --> DB
+    Visualização --> DB
+```
 
 ## A Maneira Mais Simples de Criar um Aplicativo Web com Python
 
